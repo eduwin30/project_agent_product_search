@@ -1,4 +1,4 @@
-# agent_search_product
+# 
 
 Agente de búsqueda de productos con RAG y clasificación automática por IA. Compatible con Gemini, OpenAI y Ollama.
 
@@ -13,7 +13,7 @@ Agente de búsqueda de productos con RAG y clasificación automática por IA. Co
 
 2. **Levanta Qdrant (versión compatible) con Podman:**
    ```
-   podman-compose -f agent_search_product/docker-compose-qdrant.yml up -d
+   podman-compose -f /docker-compose-qdrant.yml up -d
    ```
 
 3. **Crea y activa el entorno virtual de Python:**
@@ -27,7 +27,7 @@ Agente de búsqueda de productos con RAG y clasificación automática por IA. Co
    pip install -r requirements.txt
    ```
 
-5. **Configura el archivo `.env` en `agent_search_product/`**  
+5. **Configura el archivo `.env` en `/`**  
    - Usa `EMBEDDINGS_PROVIDER=ollama` y `OLLAMA_MODEL=nomic-embed-text` para embeddings locales.
    - Usa `LLM_PROVIDER=gemini` para clasificación con Gemini.
 
@@ -38,17 +38,17 @@ Agente de búsqueda de productos con RAG y clasificación automática por IA. Co
 
 7. **Ingesta productos en Qdrant:**
    ```
-   python3 agent_search_product/scripts_ingesta/ingest_catalog.py
+   python3 scripts_ingesta/ingest_catalog.py
    ```
 
 8. **(Opcional) Verifica los productos ingresados:**
    ```
-   python3 agent_search_product/scripts_ingesta/list_qdrant_products.py
+   python3 scripts_ingesta/list_qdrant_products.py
    ```
 
 9. **Levanta el agente de productos (API FastAPI):**
    ```
-   python3 agent_search_product/main.py
+   python3 main.py
    ```
 
 ---
@@ -62,7 +62,7 @@ Agente de búsqueda de productos con RAG y clasificación automática por IA. Co
   ```
 - Qdrant debe estar corriendo en la versión 1.15.1 para ser compatible con el cliente Python.
 - Si usas Podman, asegúrate de tener podman-compose instalado.
-- El archivo de catálogo debe estar en `agent_search_product/data/catalog_samples.csv`.
+- El archivo de catálogo debe estar en `/data/catalog_samples.csv`.
 
 ---
 
